@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="MUSCLE_GROUP_ALL">
+        <item>ABDOMINALS</item>
+        <item>ARMS</item>
+        <item>BACK</item>
+        <item>BICEPS</item>
+        <item>CALVES</item>
+        <item>CHEST</item>
+        <item>FOREARMS</item>
+        <item>GLUTES</item>
+        <item>HAMSTRINGS</item>
+        <item>LATS</item>
+        <item>LEGS</item>
+        <item>NECK</item>
+        <item>QUADRICEPS</item>
+        <item>SHOULDERS</item>
+        <item>TRAPS</item>
+        <item>TRICEPS</item>
+    </string-array>
+    <string-array name="MUSCLE_GROUP_UPPER">
+        <item>ABDOMINALS</item>
+        <item>BACK</item>
+        <item>CHEST</item>
+        <item>LATS</item>
+        <item>NECK</item>
+        <item>SHOULDERS</item>
+        <item>TRAPS</item>
+    </string-array>
+    <string-array name="MUSCLE_GROUP_ARMS">
+        <item>ARMS</item>
+        <item>BICEPS</item>
+        <item>FOREARMS</item>
+        <item>TRICEPS</item>
+    </string-array>
+    <string-array name="MUSCLE_GROUP_LOWER">
+        <item>CALVES</item>
+        <item>GLUTES</item>
+        <item>HAMSTRINGS</item>
+        <item>LEGS</item>
+        <item>QUADRICEPS</item>
+    </string-array>
+    <string-array name="CALISTHENICS">
+        <item>CAL 1</item>
+        <item>CAL 2</item>
+        <item>CAL 3</item>
+    </string-array>
+    <string-array name="OTHER">
+        <item>OTHER 1</item>
+        <item>OTHER 2</item>
+        <item>OTHER 3</item>
+    </string-array>
+    <string-array name="BODY_AREAS">
+        <item>UPPER BODY</item>
+        <item>ARMS</item>
+        <item>LOWER BODY</item>
+        <item>CALISTHENICS</item>
+        <item>OTHER</item>
+    </string-array>
+</resources>
