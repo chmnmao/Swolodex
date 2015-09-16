@@ -12,13 +12,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
-public class randomWorkout extends ActionBarActivity {
-//region VARIABLE DECLARATION
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+public class body_area_workout extends ActionBarActivity {
+    //region VARIABLE DECLARATION
+    //TODO: Store this data somewhere else so we don't call it every time we start activities
     //First we declare icons and titles for navigation
     //Store them in the array below
     String TITLES[] = {"Home","Events","Mail","Shop","Travel"};
@@ -38,19 +39,34 @@ public class randomWorkout extends ActionBarActivity {
     DrawerLayout Drawer;                                  // Declaring DrawerLayout
 
     ActionBarDrawerToggle mDrawerToggle;                  // Declaring Action Bar Drawer Toggle
-//endregion
+    //endregion
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Resources res = getResources();
+        //receive intent
+        Intent intent = getIntent();
+        String body_area = intent.getStringExtra("body_area");
 
-//region INITIALIZE TOOLBAR AND MENU NAVIGATION
+        setContentView(R.layout.activity_body_area_workout);
+        Resources res = getResources();
+        //Determine which body area we are working
+        //this hashmap gives us corresponding muscles to the area we chose
+        HashMap<String, Integer> workoutMap=new HashMap<>();
+        workoutMap.put(res.getString(R.string.UPPER_BODY), R.array.MUSCLE_GROUP_UPPER);
+        workoutMap.put(res.getString(R.string.LOWER_BODY), R.array.MUSCLE_GROUP_LOWER);
+        workoutMap.put(res.getString(R.string.CALISTHENICS), R.array.CALISTHENICS);
+        workoutMap.put(res.getString(R.string.ARMS), R.array.MUSCLE_GROUP_ARMS);
+        workoutMap.put(res.getString(R.string.OTHER), R.array.OTHER);
+
+
+
+        //region INITIALIZE TOOLBAR AND MENU NAVIGATION
         /* Assinging the toolbar object ot the view
     and setting the the Action bar to our toolbar
      */
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(body_area);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView); // Assigning the RecyclerView Object to the xml View
 
@@ -87,37 +103,12 @@ public class randomWorkout extends ActionBarActivity {
         mDrawerToggle.syncState();               // Finally we set the drawer toggle sync State
 //endregion
 
-//region PAGE CONTENT
-        /*The main page content is dedicated to randomizing
-         workouts by muscle groups e.g. Select a muscle group
-         and generate a workout
-        * */
-        ListView container = (ListView)findViewById(R.id.container);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.item_list_view_swolodex_1,
-                res.getStringArray(R.array.BODY_AREAS));
-        //TODO:
-        //Eventually set alternate colors or some sort of styling for adapters
-        //Also eventually we should use our own list item layout
-        container.setAdapter(adapter);
-        container.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //On item click we send the user to the next activity
-                Intent to_body_area = new Intent(getBaseContext(), body_area_workout.class);
-                //TODO:
-                //Resolve this
-                //For some reason when we click it's doing a weird select thing
-                to_body_area.putExtra("body_area",((TextView)view).getText());
-                startActivity(to_body_area);
-            }
-        });
-//endregion
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_body_area_workout, menu);
         return true;
     }
 
@@ -135,36 +126,4 @@ public class randomWorkout extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-//region unused methods
-   /** private void prepareListData(Resources res){
-        This method populates our preinitialized List and HashMap objects with
-        data from the arrays.xml file for body region and muscle group strings
-
-        headerData = new ArrayList<String>();
-        childData = new HashMap<String, List<String>>();
-
-        //First we populate the header data
-        headerData.addAll(Arrays.asList(res.getStringArray(R.array.BODY_AREAS)));
-        //Now we populate the child data
-        //Populate by body area
-        List<String> WORKOUT_UPPER = new ArrayList<String>(Arrays.asList(
-                res.getStringArray(R.array.MUSCLE_GROUP_UPPER)));
-        List<String> WORKOUT_ARMS = new ArrayList<String>(Arrays.asList(
-                res.getStringArray(R.array.MUSCLE_GROUP_ARMS)));
-        List<String> WORKOUT_LOWER = new ArrayList<String>(Arrays.asList(
-                res.getStringArray(R.array.MUSCLE_GROUP_LOWER)));
-        List<String> WORKOUT_CALIS = new ArrayList<String>(Arrays.asList(
-                res.getStringArray(R.array.CALISTHENICS)));
-        List<String> WORKOUT_OTHER = new ArrayList<String>(Arrays.asList(
-                res.getStringArray(R.array.OTHER)));
-        //Match header to child data
-        //Perhaps we find a way to do this automatically in the future for now we just use put()
-        childData.put(headerData.get(0),WORKOUT_UPPER);
-        childData.put(headerData.get(1),WORKOUT_ARMS);
-        childData.put(headerData.get(2),WORKOUT_LOWER);
-        childData.put(headerData.get(3),WORKOUT_CALIS);
-        childData.put(headerData.get(4),WORKOUT_OTHER);
-    }**/
-    //endregion
 }

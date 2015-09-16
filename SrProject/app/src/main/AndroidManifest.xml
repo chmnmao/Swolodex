@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.kevin.srproject" >
-    <!--Target for any users using Jelybean or above, set min SDK to Gingerbread-->
+    package="com.example.kevin.srproject" > <!-- Target for any users using Jelybean or above, set min SDK to Gingerbread -->
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="17">
+        android:targetSdkVersion="17" >
     </uses-sdk>
+
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".randomWorkout"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".body_area_workout"
+            android:label="@string/title_activity_body_area_workout" >
         </activity>
     </application>
 
