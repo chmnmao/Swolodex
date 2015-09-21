@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 /**
  * Created by Kevin on 9/8/2015.
  */
@@ -147,4 +147,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         return position == 0;
     }
 
+    /**
+     * Created by danie_000 on 9/21/2015.
+     */
+    public static class presetRandomizers {
+    }
 }

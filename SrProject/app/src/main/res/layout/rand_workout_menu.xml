@@ -1,0 +1,31 @@
+<LinearLayout android:id="@+id/exerciseDisplay"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#ff2f2f2f">
+
+    <Button
+        android:id="@+id/saveRandWorkout"
+        android:layout_width="fill_parent"
+        android:layout_height="36dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff2f2f2f"
+        android:background="#ffdce34f"
+        android:text="Save Workout"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <ListView
+        android:id="@+id/exerciseList"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="10dp"
+        android:paddingLeft="1dp"
+        android:textSize="60px"
+        android:textColor="#FFFFFF"
+        android:background="#ff202020" />
+
+</LinearLayout>
