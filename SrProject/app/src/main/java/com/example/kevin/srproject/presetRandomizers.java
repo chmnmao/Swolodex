@@ -1,9 +1,10 @@
 package com.example.kevin.srproject;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -23,11 +24,19 @@ public class presetRandomizers extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //receive intent
+        Intent intent = getIntent();
+        String body_area = intent.getStringExtra("body_area");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.rand_preset_workout_menu);
+        setContentView(R.layout.rand_workout_menu);
+        if(body_area.equals("UPPER BODY"))
+            randomizeUpperBodyWorkout();
+        else if(body_area.equals("LOWER BODY"))
+            randomizeLowerBodyWorkout();
+        //do nothing if not one of these choices because we are prototyping
     }
 
-    public void randomizeUpperBodyWorkout(View view) {
+    public void randomizeUpperBodyWorkout() {
 
         Random r = new Random();
         // Used to determine how many exercises you could possible do in a workout
@@ -35,14 +44,14 @@ public class presetRandomizers extends ActionBarActivity {
 
         // Load up a 2D array with all upper body listings
         String[][] tempExerciseList = {
-                getResources().getStringArray(R.array.chest),
-                getResources().getStringArray(R.array.traps),
-                getResources().getStringArray(R.array.shoulders),
-                getResources().getStringArray(R.array.biceps),
-                getResources().getStringArray(R.array.triceps),
-                getResources().getStringArray(R.array.wrists),
-                getResources().getStringArray(R.array.upperBack),
-                getResources().getStringArray(R.array.lowerBack)
+                getResources().getStringArray(R.array.CHEST),
+                getResources().getStringArray(R.array.TRAPS),
+                getResources().getStringArray(R.array.SHOULDERS),
+                getResources().getStringArray(R.array.BICEPS),
+                getResources().getStringArray(R.array.TRICEPS),
+                getResources().getStringArray(R.array.WRISTS),
+                getResources().getStringArray(R.array.UPPER_BACK),
+                getResources().getStringArray(R.array.LOWER_BACK)
         };
 
         // Turn this 2D array into a 1D array, there were complications with a 2D array
@@ -84,7 +93,7 @@ public class presetRandomizers extends ActionBarActivity {
             exercisePicks[countTotalExercise] = exerciseList.get(randExerciseSelect);
 
             // Cast the int to a string and set the sets to that number... nice wording
-            sets[countTotalExercise] = Integer.toString(getResources().getIntArray(R.array.sets)[randSetSelect]);
+            sets[countTotalExercise] = Integer.toString(getResources().getIntArray(R.array.SETS)[randSetSelect]);
             // If the roll has chosen the string array of repetition values and there are 3 sets, do this
             if (randRepetitionArraySelect == 0 && sets[countTotalExercise].equals("3")) {
                 repetitions[countTotalExercise] = getResources().getStringArray(R.array.stringRepetitions)[randStringRepetitionSelect];
@@ -120,7 +129,7 @@ public class presetRandomizers extends ActionBarActivity {
         });
     }
 
-    public void randomizeLowerBodyWorkout(View view) {
+    public void randomizeLowerBodyWorkout() {
 
         Random r = new Random();
         // Used to determine how many exercises you could possible do in a workout
@@ -128,11 +137,11 @@ public class presetRandomizers extends ActionBarActivity {
 
         // Load up a 2D array with all lower body listings
         String[][] tempExerciseList = {
-                getResources().getStringArray(R.array.totalLowerBody),
-                getResources().getStringArray(R.array.calves),
-                getResources().getStringArray(R.array.quads),
-                getResources().getStringArray(R.array.gluts),
-                getResources().getStringArray(R.array.hamstrings),
+                getResources().getStringArray(R.array.LOWER_BODY),
+                getResources().getStringArray(R.array.CALVES),
+                getResources().getStringArray(R.array.QUADS),
+                getResources().getStringArray(R.array.GLUTS),
+                getResources().getStringArray(R.array.HAMSTRINGS),
         };
 
         // turn this 2D array into a 1D array, there were complications with a 2D array
@@ -174,7 +183,7 @@ public class presetRandomizers extends ActionBarActivity {
             exercisePicks[countTotalExercise] = exerciseList.get(randExerciseSelect);
 
             // Cast the int to a string and set the sets to that number... nice wording
-            sets[countTotalExercise] = Integer.toString(getResources().getIntArray(R.array.sets)[randSetSelect]);
+            sets[countTotalExercise] = Integer.toString(getResources().getIntArray(R.array.SETS)[randSetSelect]);
             // If the roll has chosen the string array of repetition values and there are 3 sets, do this
             if (randRepetitionArraySelect == 0 && sets[countTotalExercise].equals("3")) {
                 repetitions[countTotalExercise] = getResources().getStringArray(R.array.stringRepetitions)[randStringRepetitionSelect];

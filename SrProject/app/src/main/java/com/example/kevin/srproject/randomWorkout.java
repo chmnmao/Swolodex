@@ -103,7 +103,8 @@ public class randomWorkout extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //On item click we send the user to the next activity
-                Intent to_body_area = new Intent(getBaseContext(), body_area_workout.class);
+                //TODO: Currently send intent to demo page
+                Intent to_body_area = new Intent(getBaseContext(), presetRandomizers.class);
                 //TODO:
                 //Resolve this
                 //For some reason when we click it's doing a weird select thing

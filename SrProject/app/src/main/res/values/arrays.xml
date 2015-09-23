@@ -58,7 +58,7 @@
         <item>OTHER</item>
     </string-array>
 
-    <array name="chest">
+    <array name="CHEST">
         <item>Flat Barbell Press</item>
         <item>Dumbbell Bench Press</item>
         <item>Incline Barbell Bench Press</item>
@@ -76,14 +76,14 @@
         <item>Cable Crossovers/Cable Flyes</item>
     </array>
 
-    <array name="traps">
+    <array name="TRAPS">
         <item>Bar Shrugs</item>,
         <item>Plate Shrugs</item>,
         <item>Dumbbell Shrugs</item>,
         <item>Turtle Walks</item>
     </array>
 
-    <array name="shoulders">
+    <array name="SHOULDERS">
         <item>Seated Overhead Barbell Press</item>,
         <item>Seated Overhead Dumbbell Press</item>,
         <item>Standing Overhead Barbell Press</item>,
@@ -103,7 +103,7 @@
         <item>Machine Front Raises</item>
     </array>
 
-    <array name="biceps">
+    <array name="BICEPS">
         <item>Standing Barbell Curls</item>,
         <item>Standing Dumbbell Curls</item>,
         <item>Barbell Preacher Curls</item>,
@@ -116,7 +116,7 @@
         <item>Biceps Curl Machine</item>
     </array>
 
-    <array name="triceps">
+    <array name="TRICEPS">
         <item>Dips (elbows close to body, without forward lean)</item>,
         <item>Close Grip Flat Bench Press</item>,
         <item>Close Grip Decline Bench Press</item>,
@@ -130,12 +130,12 @@
         <item>Bench Dips</item>
     </array>
 
-    <array name="wrists">
+    <array name="WRISTS">
         <item>Behind the Back Barbell Wrist Curls</item>,
         <item>Dumbbell Wrist Curls</item>
     </array>
 
-    <array name="upperBack">
+    <array name="UPPER_BACK">
         <item>Rows</item>,
         <item>Lat Pulldown</item>,
         <item>Close Grip Pull-ups</item>,
@@ -144,14 +144,14 @@
         <item>Straight Arm Pulldown</item>
     </array>
 
-    <array name="lowerBack">
+    <array name="LOWER_BACK">
         <item>Seated Good Mornings</item>,
         <item>Straight Leg Deadlift</item>,
         <item>Back Extensions</item>,
         <item>Prone Extensions</item>
     </array>
 
-    <array name="totalLowerBody">
+    <array name="LOWER_BODY">
         <item>Barbell Squats</item>,
         <item>Front Barbell Squats</item>,
         <item>Dumbbell Squats</item>,
@@ -170,7 +170,7 @@
         <item>Single Arm KettleBell Swings</item>
     </array>
 
-    <array name="calves">
+    <array name="CALVES">
         <item>Standing Calve Raises</item>,
         <item>Standing Barbell Calf Raises</item>,
         <item>Standing Dumbbell Calve Raises</item>,
@@ -178,19 +178,19 @@
         <item>Calf Press</item>
     </array>
 
-    <array name="quads">
+    <array name="QUADS">
         <item>Machine Single Leg Extensions</item>
     </array>
 
-    <array name="gluts">
+    <array name="GLUTS">
         <item>Natural Glut Ham Raise</item>
     </array>
 
-    <array name="hamstrings">
+    <array name="HAMSTRINGS">
         <item>Machine Leg Curls</item>
     </array>
 
-    <integer-array name="sets">
+    <integer-array name="SETS">
         <item>5</item>
         <item>3</item>
         <item>3</item>

@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -58,8 +59,6 @@ public class body_area_workout extends ActionBarActivity {
         workoutMap.put(res.getString(R.string.ARMS), R.array.MUSCLE_GROUP_ARMS);
         workoutMap.put(res.getString(R.string.OTHER), R.array.OTHER);
 
-
-
         //region INITIALIZE TOOLBAR AND MENU NAVIGATION
         /* Assinging the toolbar object ot the view
     and setting the the Action bar to our toolbar
@@ -102,6 +101,11 @@ public class body_area_workout extends ActionBarActivity {
         Drawer.setDrawerListener(mDrawerToggle); // Drawer Listener set to the Drawer toggle
         mDrawerToggle.syncState();               // Finally we set the drawer toggle sync State
 //endregion
+        //So we want to display a randomly generated workout dependent on what muscle area selected
+        //Determine which muscle group to select from
+        //Select from those arrays
+        //Dependent on which muscle group paged from intent
+
 
     }
 
@@ -126,4 +130,26 @@ public class body_area_workout extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private List<String> randomizeUpper(Resources res){
+        //Our output list
+        List<String> resultWorkout = new ArrayList<>();
+        //The string that we use to get muscle group names
+        List<String> upperAreas = Arrays.asList(res.getStringArray(R.array.MUSCLE_GROUP_UPPER));
+        //Add the arm workouts that are stored in a different arary. This needs to be changed later
+        upperAreas.addAll(Arrays.asList(res.getStringArray(R.array.MUSCLE_GROUP_ARMS)));
+        //Where we store muscle group and workout associations
+        HashMap<String, String[]> upperMap=new HashMap<>();
+
+        upperMap.put(upperAreas.get(upperAreas.indexOf("CHEST")), res.getStringArray(R.array.CHEST));
+        upperMap.put(upperAreas.get(upperAreas.indexOf("TRAPS")), res.getStringArray(R.array.TRAPS));
+        upperMap.put(upperAreas.get(upperAreas.indexOf("SHOULDERS")),
+                res.getStringArray(R.array.SHOULDERS));
+        upperMap.put(upperAreas.get(upperAreas.indexOf("BICEPS")), res.getStringArray(R.array.BICEPS));
+        upperMap.put(upperAreas.get(upperAreas.indexOf("TRICEPS")), res.getStringArray((R.array.TRICEPS)));
+        //More areas need to be added later but for now we will stay with these
+
+        return resultWorkout;
+    }
+
 }
