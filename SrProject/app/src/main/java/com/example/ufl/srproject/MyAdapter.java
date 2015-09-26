@@ -1,4 +1,4 @@
-package com.example.kevin.srproject;
+package com.example.ufl.srproject;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.example.kevin.srproject.db;
+package com.example.ufl.srproject.db;
 
 /**
  * Created by Kevin on 9/22/2015.

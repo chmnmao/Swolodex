@@ -1,4 +1,4 @@
-package com.example.kevin.srproject;
+package com.example.ufl.srproject;
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,6 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
+
+import com.example.ufl.srproject.R;
+
 /**
  * Created by Kevin on 9/10/2015.
  */

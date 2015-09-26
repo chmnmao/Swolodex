@@ -1,4 +1,4 @@
-package com.example.kevin.srproject;
+package com.example.ufl.srproject;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -192,7 +192,7 @@ public class presetRandomizers extends ActionBarActivity {
         ListView displayExercises = (ListView)findViewById(R.id.exerciseList);
         displayExercises.setAdapter(arrayAddNewExercise);
     }
-    
+
     public void saveWorkout(String[] saveWorkout) {
         String List = "";
 

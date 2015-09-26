@@ -1,12 +1,10 @@
-package com.example.kevin.srproject.db;
+package com.example.ufl.srproject.db;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import com.example.kevin.srproject.db.DictionaryEntry;
 
 /**
  * Created by Kevin on 9/22/2015.
