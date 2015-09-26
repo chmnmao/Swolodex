@@ -52,7 +52,6 @@
     </string-array>
     <string-array name="BODY_AREAS">
         <item>UPPER BODY</item>
-        <item>ARMS</item>
         <item>LOWER BODY</item>
         <item>CALISTHENICS</item>
         <item>OTHER</item>
@@ -182,7 +181,7 @@
         <item>Machine Single Leg Extensions</item>
     </array>
 
-    <array name="GLUTS">
+    <array name="GLUTES">
         <item>Natural Glut Ham Raise</item>
     </array>
 

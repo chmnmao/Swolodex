@@ -17,8 +17,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class randomWorkout extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity {
 //region VARIABLE DECLARATION
+    //TODO: Store this information in res xml files
     //First we declare icons and titles for navigation
     //Store them in the array below
     String TITLES[] = {"Home","Events","Mail","Shop","Travel"};
