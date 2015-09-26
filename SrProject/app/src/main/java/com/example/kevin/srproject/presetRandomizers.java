@@ -102,12 +102,7 @@ public class presetRandomizers extends ActionBarActivity {
         Drawer.setDrawerListener(mDrawerToggle); // Drawer Listener set to the Drawer toggle
         mDrawerToggle.syncState();               // Finally we set the drawer toggle sync State
 //endregion
-        if(body_area.equals("UPPER BODY"))
-            randomizeUpperBodyWorkout(res);
-        else if(body_area.equals("LOWER BODY"))
-            randomizeLowerBodyWorkout(res);
-        //do nothing if not one of these choices because we are prototyping
-
+        randomizeWorkout(res, body_area);
 
         // initialize the save button and its listener
         //Refactored: extracted the method to here
@@ -145,28 +140,6 @@ public class presetRandomizers extends ActionBarActivity {
             exerciseList.addAll(Arrays.asList(res.getStringArray(R.array.HAMSTRINGS)));
         }
 
-
-    }
-
-    public void randomizeUpperBodyWorkout(Resources res) {
-
-        Random r = new Random();
-        // Used to determine how many exercises you could possible do in a workout
-        int countTotalExercise = r.nextInt(4) + 5;
-
-        List<String> exerciseList = new ArrayList<String>();
-        //Refactored: immediately add all arrays as list now
-        exerciseList.addAll(Arrays.asList(res.getStringArray(R.array.CHEST)));
-        exerciseList.addAll(Arrays.asList(res.getStringArray(R.array.TRAPS)));
-        exerciseList.addAll(Arrays.asList(res.getStringArray(R.array.SHOULDERS)));
-        exerciseList.addAll(Arrays.asList(res.getStringArray(R.array.BICEPS)));
-        exerciseList.addAll(Arrays.asList(res.getStringArray(R.array.TRICEPS)));
-        exerciseList.addAll(Arrays.asList(res.getStringArray(R.array.WRISTS)));
-        exerciseList.addAll(Arrays.asList(res.getStringArray(R.array.UPPER_BACK)));
-        exerciseList.addAll(Arrays.asList(res.getStringArray(R.array.LOWER_BACK)));
-
-
-        // Initialization of these arrays
         //Refactored: changed exercisePicks to list for easier implementation
         exercisePicks = new ArrayList<String>();
         sets = new String[countTotalExercise];
@@ -219,75 +192,7 @@ public class presetRandomizers extends ActionBarActivity {
         ListView displayExercises = (ListView)findViewById(R.id.exerciseList);
         displayExercises.setAdapter(arrayAddNewExercise);
     }
-
-    public void randomizeLowerBodyWorkout(Resources res) {
-
-        Random r = new Random();
-        // Used to determine how many exercises you could possible do in a workout
-        int countTotalExercise = r.nextInt(4) + 5;
-
-        List<String> exerciseList = new ArrayList<String>();
-
-        exerciseList.addAll(Arrays.asList(res.getStringArray(R.array.LOWER_BODY)));
-        exerciseList.addAll(Arrays.asList(res.getStringArray(R.array.CALVES)));
-        exerciseList.addAll(Arrays.asList(res.getStringArray(R.array.QUADS)));
-        exerciseList.addAll(Arrays.asList(res.getStringArray(R.array.GLUTES)));
-        exerciseList.addAll(Arrays.asList(res.getStringArray(R.array.HAMSTRINGS)));
-
-
-        // Initialization of these arrays
-        exercisePicks = new ArrayList<String>();
-        sets = new String[countTotalExercise];
-        repetitions = new String[countTotalExercise];
-        countTotalExercise--;
-
-        while (countTotalExercise >= 0) {
-            // Choose a random exercise, number of sets
-            int randExerciseSelect = r.nextInt(exerciseList.size());
-            int randSetSelect = r.nextInt(4);
-            // Choose which array to pull the repetitions from
-            int randStringRepetitionSelect = r.nextInt(4);
-            // Needed a string array from values such as "10, 8, 6"
-            int randIntRepetitionSelect = r.nextInt(2);
-            // Needed an int array for values such as "10" and "6", kill me
-            int randRepetitionArraySelect = r.nextInt(2);
-
-            // Check if the exercise has already been selected and placed into the workout
-            //Refactored: using list implementation we only need a simple if statement
-            if(exercisePicks.contains(exerciseList.get(randExerciseSelect)))
-                randExerciseSelect=r.nextInt(exerciseList.size());
-
-            // If it passes the check, put it into the workout
-            //Refactored: using list implementation
-            exercisePicks.add(exerciseList.get(randExerciseSelect));
-
-            // Cast the int to a string and set the sets to that number... nice wording
-            sets[countTotalExercise] = Integer.toString(getResources().getIntArray(R.array.SETS)[randSetSelect]);
-            // If the roll has chosen the string array of repetition values and there are 3 sets, do this
-            if (randRepetitionArraySelect == 0 && sets[countTotalExercise].equals("3")) {
-                repetitions[countTotalExercise] = getResources().getStringArray(R.array.stringRepetitions)[randStringRepetitionSelect];
-            }
-            else {
-                repetitions[countTotalExercise] = Integer.toString(getResources().getIntArray(R.array.intRepetitions)[randIntRepetitionSelect]);
-            }
-
-            countTotalExercise--;
-        }
-
-
-        // Assemble the workout array
-        workout = new String[exercisePicks.size()];
-        for(int i = 0; i < workout.length; i++)
-        {
-            workout[i] = exercisePicks.get(i) + "\n" + "\t\t\tSets:\t" + sets[i] + "\n" + "\t\t\tRepetitions:\t" + repetitions[i];
-        }
-
-        // Print the sucker to screen
-        arrayAddNewExercise = new ArrayAdapter<String>(this, R.layout.item_list_view_swolodex_2, workout);
-        ListView displayExercises = (ListView)findViewById(R.id.exerciseList);
-        displayExercises.setAdapter(arrayAddNewExercise);
-    }
-
+    
     public void saveWorkout(String[] saveWorkout) {
         String List = "";
 
