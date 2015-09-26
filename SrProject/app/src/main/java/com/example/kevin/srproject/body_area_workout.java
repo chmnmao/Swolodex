@@ -18,6 +18,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+//TODO: TRY TO USE DATABASE STORAGE FOR THIS ACTIVITY
+
 public class body_area_workout extends ActionBarActivity {
     //region VARIABLE DECLARATION
     //TODO: Store this data somewhere else so we don't call it every time we start activities
