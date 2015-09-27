@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/exerciseDisplay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="7dp">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/tool_bar">
+        </include>
+
+        <Button
+            android:id="@+id/saveRandWorkout"
+            android:layout_width="fill_parent"
+            android:layout_height="36dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#ff2f2f2f"
+            android:background="#ffdce34f"
+            android:text="Save Workout"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <ListView
+            android:id="@+id/exerciseList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <!--This is our navigation drawer-->
+    <!--Background color is the background of the drawer-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/RecyclerView"
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="#ffffff"
+        android:scrollbars="vertical">
+
+    </android.support.v7.widget.RecyclerView>
+</android.support.v4.widget.DrawerLayout>
