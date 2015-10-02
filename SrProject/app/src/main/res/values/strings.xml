@@ -13,4 +13,6 @@
     <string name="CALISTHENICS">CALISTHENICS</string>
     <string name="OTHER">OTHER</string>
     <string name="ARMS">ARMS</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_login">Sign In</string>
 </resources>

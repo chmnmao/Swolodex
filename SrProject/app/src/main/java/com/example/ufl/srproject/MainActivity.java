@@ -45,7 +45,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Resources res = getResources();
-
+//TODO:Create method to call and initialize toolbar instead of doing it every single time
 //region INITIALIZE TOOLBAR AND MENU NAVIGATION
         /* Assinging the toolbar object ot the view
     and setting the the Action bar to our toolbar
@@ -134,7 +134,11 @@ public class MainActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
+        if(id==R.id.action_login){
+            //Begin login intent
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
 
