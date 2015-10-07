@@ -1,0 +1,140 @@
+<LinearLayout android:id="@+id/LinearLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#ff2f2f2f">
+
+    <LinearLayout android:id="@+id/LinearLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:background="#ff202020"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/randUpperBodyWorkout"
+            android:layout_width="80px"
+            android:layout_margin="10dp"
+            android:layout_height="56dp"
+            android:background="#ffdce34f"
+            android:onClick="randNumUpperBodyWorkout" />
+
+        <Button
+            android:id="@+id/randUpperBodyWorkout2"
+            android:layout_width="fill_parent"
+            android:layout_height="56dp"
+            android:layout_marginLeft="-10dp"
+            android:textColor="#FFFFFF"
+            android:background="#ff202020"
+            android:textStyle="bold"
+            android:text="Upper Body"
+            android:gravity="center"
+            android:onClick="randNumUpperBodyWorkout" />
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/LinearLayout02"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:background="#ff202020"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/randLowerBodyWorkout"
+            android:layout_width="80px"
+            android:layout_margin="10dp"
+            android:layout_height="56dp"
+            android:background="#ffdce34f"
+            android:onClick="randNumLowerBodyWorkout" />
+
+        <Button
+            android:id="@+id/randLowerBodyWorkout2"
+            android:layout_width="fill_parent"
+            android:layout_height="56dp"
+            android:layout_marginLeft="-10dp"
+            android:textColor="#FFFFFF"
+            android:background="#ff202020"
+            android:textStyle="bold"
+            android:text="Lower Body"
+            android:gravity="center"
+            android:onClick="randNumLowerBodyWorkout" />
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#ff202020"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/randCoreBodyWorkout"
+            android:layout_width="80px"
+            android:layout_margin="10dp"
+            android:layout_height="56dp"
+            android:background="#ffdce34f"/>
+        //android:onClick="randWorkout"
+
+        <Button
+            android:id="@+id/randCoreBodyWorkout2"
+            android:layout_width="fill_parent"
+            android:layout_height="56dp"
+            android:layout_marginLeft="-10dp"
+            android:textColor="#FFFFFF"
+            android:background="#ff202020"
+            android:textStyle="bold"
+            android:text="Core"
+            android:gravity="center"/>
+        //android:onClick="randWorkout"
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#ff202020"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/randCalisthenicsBodyWorkout"
+            android:layout_width="80px"
+            android:layout_margin="10dp"
+            android:layout_height="56dp"
+            android:background="#ffdce34f"/>
+        //android:onClick="randWorkout"
+
+        <Button
+            android:id="@+id/randCalisthenicsBodyWorkout2"
+            android:layout_width="fill_parent"
+            android:layout_height="56dp"
+            android:layout_marginLeft="-10dp"
+            android:textColor="#FFFFFF"
+            android:background="#ff202020"
+            android:textStyle="bold"
+            android:text="Calisthenics"
+            android:gravity="center"/>
+        //android:onClick="randWorkout"
+    </LinearLayout>
+
+</LinearLayout>

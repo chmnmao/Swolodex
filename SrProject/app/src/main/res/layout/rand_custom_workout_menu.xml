@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#ff2f2f2f" >
+
+    <TextView
+        android:id="@+id/exercisesHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="1dp"
+        android:textSize="60px"
+        android:textColor="#FFFFFF"
+        android:background="#ff2f2f2f"
+        android:gravity="center|left"
+        android:text="Exercises:" />
+
+    <ExpandableListView
+        android:id="@+id/lvExp"
+        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:background="#ff2f2f2f"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+    <TextView
+        android:id="@+id/workoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="1dp"
+        android:textSize="60px"
+        android:textColor="#FFFFFF"
+        android:background="#ff2f2f2f"
+        android:gravity="center|left"
+        android:text="Selection:" />
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="1dp"
+        android:textSize="60px"
+        android:textColor="#FFFFFF"
+        android:background="#ff202020" />
+
+    <Button
+        android:id="@+id/randWorkout"
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:layout_margin="10dp"
+        android:textColor="#ff2f2f2f"
+        android:background="#ffdce34f"
+        android:textStyle="bold"
+        android:text="More Options"
+        android:gravity="center"
+        android:onClick="options" />
+
+</LinearLayout>

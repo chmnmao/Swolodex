@@ -1,0 +1,111 @@
+<LinearLayout android:id="@+id/LinearLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#ff2f2f2f">
+
+    <LinearLayout android:id="@+id/LinearLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:background="#ff202020"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/randWorkout"
+            android:layout_width="80px"
+            android:layout_margin="10dp"
+            android:layout_height="56dp"
+            android:background="#ffdce34f"
+            android:onClick="randNumWorkout" />
+
+        <Button
+            android:id="@+id/randWorkout"
+            android:layout_width="fill_parent"
+            android:layout_height="56dp"
+            android:layout_marginLeft="-10dp"
+            android:textColor="#FFFFFF"
+            android:background="#ff202020"
+            android:textStyle="bold"
+            android:text="From All lists"
+            android:gravity="center"
+            android:onClick="randNumWorkout" />
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#ff202020"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/randWorkoutCustomize"
+            android:layout_width="80px"
+            android:layout_margin="10dp"
+            android:layout_height="56dp"
+            android:background="#ffdce34f"
+            android:onClick="randPresetNumWorkout" />
+
+        <Button
+            android:id="@+id/randWorkoutCustomize2"
+            android:layout_width="fill_parent"
+            android:layout_height="56dp"
+            android:layout_marginLeft="-10dp"
+            android:textColor="#FFFFFF"
+            android:background="#ff202020"
+            android:textStyle="bold"
+            android:text="From Presets"
+            android:gravity="center"
+            android:onClick="randPresetNumWorkout" />
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#ff202020"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/randWorkoutCustomize"
+            android:layout_width="80px"
+            android:layout_margin="10dp"
+            android:layout_height="56dp"
+            android:background="#ffdce34f"
+            android:onClick="randWorkout3" />
+
+        <Button
+            android:id="@+id/randWorkoutCustomize2"
+            android:layout_width="fill_parent"
+            android:layout_height="56dp"
+            android:layout_marginLeft="-10dp"
+            android:textColor="#FFFFFF"
+            android:background="#ff202020"
+            android:textStyle="bold"
+            android:text="From Another Selection"
+            android:gravity="center"
+            android:onClick="randWorkout3" />
+
+    </LinearLayout>
+
+</LinearLayout>
