@@ -9,8 +9,10 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -63,7 +65,33 @@ public class MainActivity extends ActionBarActivity {
         // and header view profile picture
 
         mRecyclerView.setAdapter(mAdapter);                              // Setting the adapter to RecyclerView
-
+        //region Setting onclick listeners for the RecyclerView
+        final GestureDetector gd = new GestureDetector(MainActivity.this,new GestureDetector.SimpleOnGestureListener(){
+            @Override
+            public boolean onSingleTapUp(MotionEvent e){
+                return true;
+            }
+        });
+        mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener(){
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent){
+                View child = recyclerView.findChildViewUnder(motionEvent.getX(),motionEvent.getY());
+                if(child!=null&&gd.onTouchEvent(motionEvent)){
+                    Drawer.closeDrawers();
+                    //Do something here depending on item
+                    if(recyclerView.getChildPosition(child)==6){
+                        //We have clicked on the customize workout
+                        Intent toCustom = new Intent(getBaseContext(),RandCustomWorkout.class);
+                        startActivity(toCustom);
+                    }
+                    return true;
+                }
+                return false;
+            }
+            @Override
+            public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent){}
+        });
+        //endregion
         mLayoutManager = new LinearLayoutManager(this);                 // Creating a layout Manager
 
         mRecyclerView.setLayoutManager(mLayoutManager);                 // Setting the layout Manager
@@ -107,9 +135,6 @@ public class MainActivity extends ActionBarActivity {
                 //On item click we send the user to the next activity
                 //TODO: Currently send intent to demo page
                 Intent to_body_area = new Intent(getBaseContext(), presetRandomizers.class);
-                //TODO:
-                //Resolve this
-                //For some reason when we click it's doing a weird select thing
                 to_body_area.putExtra("body_area",((TextView)view).getText());
                 startActivity(to_body_area);
             }
