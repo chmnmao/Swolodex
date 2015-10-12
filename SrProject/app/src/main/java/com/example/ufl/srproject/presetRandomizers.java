@@ -27,8 +27,8 @@ public class presetRandomizers extends ActionBarActivity {
     //TODO: Store this information in res xml files
     //First we declare icons and titles for navigation
     //Store them in the array below
-    String TITLES[] = {"Home","Events","Mail","Shop","Travel"};
-    int ICONS[] = {R.drawable.ic_home,R.drawable.ic_events,R.drawable.ic_mail,R.drawable.ic_shop,R.drawable.ic_travel};
+    String TITLES[] = {"Home","Events","Mail","Shop","Travel","Customize"};
+    int ICONS[] = {R.drawable.ic_home,R.drawable.ic_events,R.drawable.ic_mail,R.drawable.ic_shop,R.drawable.ic_travel,R.drawable.ic_cust_weight};
 
     //Add string resources for profile data that we also store in the header
     //And we also create a int resource for profile picture
