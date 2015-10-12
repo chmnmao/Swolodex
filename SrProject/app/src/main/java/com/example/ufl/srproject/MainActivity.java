@@ -81,7 +81,7 @@ public class MainActivity extends ActionBarActivity {
                     //Do something here depending on item
                     if(recyclerView.getChildPosition(child)==6){
                         //We have clicked on the customize workout
-                        Intent toCustom = new Intent(getBaseContext(),RandCustomWorkout.class);
+                        Intent toCustom = new Intent(MainActivity.this,RandCustomWorkout.class);
                         startActivity(toCustom);
                     }
                     return true;

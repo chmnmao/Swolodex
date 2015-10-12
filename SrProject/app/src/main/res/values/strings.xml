@@ -15,4 +15,5 @@
     <string name="ARMS">ARMS</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_login">Sign In</string>
+    <string name="title_activity_customize">Customize</string>
 </resources>

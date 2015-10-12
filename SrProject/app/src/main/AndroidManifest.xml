@@ -40,6 +40,10 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
+        <activity
+            android:name=".RandCustomWorkout"
+            android:label="@string/title_activity_customize">
+        </activity>
     </application>
 
 </manifest>
