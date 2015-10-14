@@ -4,11 +4,12 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="8dp"
-    android:background="#000000">
+    android:background="#FFFFFF">
 
     <TextView
         android:id="@+id/expandable_item_header"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/BLACK"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"/>
 </LinearLayout>

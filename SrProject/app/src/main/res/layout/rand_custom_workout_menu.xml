@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="#ff2f2f2f" >
+    android:background="#FFFFFF" >
 
     <TextView
         android:id="@+id/exercisesHeader"
@@ -14,8 +14,7 @@
         android:layout_marginTop="5dp"
         android:paddingLeft="1dp"
         android:textSize="60px"
-        android:textColor="#FFFFFF"
-        android:background="#ff2f2f2f"
+        android:textColor="@color/BLACK"
         android:gravity="center|left"
         android:text="Exercises:" />
 
@@ -23,9 +22,9 @@
         android:id="@+id/lvExp"
         android:layout_height="200dp"
         android:layout_width="match_parent"
-        android:background="#ff2f2f2f"
+        android:background="#FFFFFF"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"/>
 
     <TextView
         android:id="@+id/workoutHeader"
@@ -35,8 +34,7 @@
         android:layout_marginRight="10dp"
         android:paddingLeft="1dp"
         android:textSize="60px"
-        android:textColor="#FFFFFF"
-        android:background="#ff2f2f2f"
+        android:textColor="@color/BLACK"
         android:gravity="center|left"
         android:text="Selection:" />
 
@@ -48,8 +46,7 @@
         android:layout_marginRight="10dp"
         android:paddingLeft="1dp"
         android:textSize="60px"
-        android:textColor="#FFFFFF"
-        android:background="#ff202020" />
+        android:textColor="@color/BLACK"/>
 
     <Button
         android:id="@+id/randWorkout"

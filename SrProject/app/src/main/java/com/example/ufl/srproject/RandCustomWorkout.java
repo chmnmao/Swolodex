@@ -73,7 +73,7 @@ public class RandCustomWorkout extends ActionBarActivity {
         displayExercises.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(useMe,"Removed: " + arrayAddNewExercise.getItem(position) + " Position: " + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(useMe,"Removed: " + arrayAddNewExercise.getItem(position), Toast.LENGTH_SHORT).show();
 
                 removeFromListView(position);
             }
