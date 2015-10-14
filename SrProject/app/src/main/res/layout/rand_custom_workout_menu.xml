@@ -1,63 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:background="#FFFFFF" >
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="7dp">
 
-    <TextView
-        android:id="@+id/exercisesHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:paddingLeft="1dp"
-        android:textSize="60px"
-        android:textColor="@color/BLACK"
-        android:gravity="center|left"
-        android:text="Exercises:" />
-
-    <ExpandableListView
-        android:id="@+id/lvExp"
-        android:layout_height="200dp"
-        android:layout_width="match_parent"
-        android:background="#FFFFFF"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
-
-    <TextView
-        android:id="@+id/workoutHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:paddingLeft="1dp"
-        android:textSize="60px"
-        android:textColor="@color/BLACK"
-        android:gravity="center|left"
-        android:text="Selection:" />
-
-    <ListView
-        android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:paddingLeft="1dp"
-        android:textSize="60px"
-        android:textColor="@color/BLACK"/>
-
-    <Button
-        android:id="@+id/randWorkout"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="56dp"
-        android:layout_margin="10dp"
-        android:textColor="#ff2f2f2f"
-        android:background="#ffdce34f"
-        android:textStyle="bold"
-        android:text="More Options"
-        android:gravity="center"
-        android:onClick="options" />
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/tool_bar">
+        </include>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/exercisesHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="1dp"
+            android:textSize="60px"
+            android:textColor="@color/BLACK"
+            android:gravity="center|left"
+            android:text="Exercises:" />
+
+        <ExpandableListView
+            android:id="@+id/lvExp"
+            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:background="#FFFFFF"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:id="@+id/workoutHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="1dp"
+            android:textSize="60px"
+            android:textColor="@color/BLACK"
+            android:gravity="center|left"
+            android:text="Selection:" />
+
+        <ListView
+            android:id="@+id/selectionList"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="1dp"
+            android:textSize="60px"
+            android:textColor="@color/BLACK"/>
+
+        <Button
+            android:id="@+id/randWorkout"
+            android:layout_width="fill_parent"
+            android:layout_height="56dp"
+            android:layout_margin="10dp"
+            android:textColor="#ff2f2f2f"
+            android:background="#ffdce34f"
+            android:textStyle="bold"
+            android:text="More Options"
+            android:gravity="center"
+            android:onClick="options" />
+    </LinearLayout>
+
+
+    <!--This is our navigation drawer-->
+    <!--Background color is the background of the drawer-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/RecyclerView"
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="#ffffff"
+        android:scrollbars="vertical">
+
+    </android.support.v7.widget.RecyclerView>
+</android.support.v4.widget.DrawerLayout>
