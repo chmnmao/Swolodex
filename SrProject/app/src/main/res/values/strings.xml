@@ -4,6 +4,7 @@
     <string name="body_area">Body Area</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_custom">Custom Options</string>
     <string name="openDrawer">openDrawer</string>
     <string name="closeDrawer">closeDrawer</string>
     <string name="title_activity_body_area_workout">body_area_workout</string>

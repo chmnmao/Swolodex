@@ -17,6 +17,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -33,8 +35,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
-public class RandCustomWorkout extends ActionBarActivity {
 
+public class RandCustomWorkout extends ActionBarActivity {
+//TODO: You should not be able to add the same exercise over and over and over
+    //TODO: Also, we need to fix this layout, it's ugly.
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
@@ -338,7 +342,7 @@ public class RandCustomWorkout extends ActionBarActivity {
     }
 
     // Called when the user clicks the More Options button
-    public void options (View view) {
+    public void options () {
         if (exercisePicks.size() < 1) {
             Toast.makeText(this,"Please select at least one workout or group to randomize", Toast.LENGTH_SHORT).show();
         }
@@ -439,4 +443,34 @@ public class RandCustomWorkout extends ActionBarActivity {
         ListView displayExercises = (ListView)findViewById(R.id.selectionList);
         displayExercises.setAdapter(arrayAddNewExercise);
     }
+//region Menu creation
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_custom, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if(id==R.id.action_custom_options){
+            this.options();
+        }
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        if(id==R.id.action_login){
+            //Begin login intent
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+//endregion
 }

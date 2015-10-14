@@ -57,18 +57,6 @@
             android:paddingLeft="1dp"
             android:textSize="60px"
             android:textColor="@color/BLACK"/>
-
-        <Button
-            android:id="@+id/randWorkout"
-            android:layout_width="fill_parent"
-            android:layout_height="56dp"
-            android:layout_margin="10dp"
-            android:textColor="#ff2f2f2f"
-            android:background="#ffdce34f"
-            android:textStyle="bold"
-            android:text="More Options"
-            android:gravity="center"
-            android:onClick="options" />
     </LinearLayout>
 
 
