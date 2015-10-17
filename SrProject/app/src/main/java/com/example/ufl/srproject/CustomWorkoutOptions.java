@@ -1,4 +1,4 @@
-package com.example.ufl.srproject.db;
+package com.example.ufl.srproject;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -15,8 +15,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import com.example.ufl.srproject.R;
 
 import java.util.Random;
 

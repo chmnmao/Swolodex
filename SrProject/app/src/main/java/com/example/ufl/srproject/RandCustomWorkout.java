@@ -28,8 +28,6 @@ import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.ufl.srproject.db.CustomWorkoutOptions;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
