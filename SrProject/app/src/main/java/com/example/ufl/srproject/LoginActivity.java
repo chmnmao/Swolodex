@@ -3,18 +3,31 @@ package com.example.ufl.srproject;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 
 public class LoginActivity extends ActionBarActivity {
-
+    CallbackManager cb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login);
+        cb=CallbackManager.Factory.create();
+        LoginButton fbLog = (LoginButton) findViewById(R.id.fb_login);
 
         TextView registerScreen = (TextView) findViewById(R.id.link_to_register);
         registerScreen.setOnClickListener(new View.OnClickListener() {
@@ -24,6 +37,26 @@ public class LoginActivity extends ActionBarActivity {
                 startActivity(intent);
             }
         });
+
+        fbLog.registerCallback(cb, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Toast.makeText(getApplicationContext(),"Successful Login", Toast.LENGTH_LONG).show();
+                EditText user = (EditText)findViewById(R.id.userField);
+                user.setText(loginResult.getAccessToken().getUserId());
+            }
+
+            @Override
+            public void onCancel() {
+                Toast.makeText(getApplicationContext(),"Cancel Login", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onError(FacebookException e) {
+                Toast.makeText(getApplicationContext(),"Login Failure", Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 
     @Override
@@ -47,4 +80,6 @@ public class LoginActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
