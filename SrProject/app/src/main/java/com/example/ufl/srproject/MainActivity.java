@@ -16,10 +16,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseExpandableListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends BaseActivity {
 //region VARIABLE DECLARATION
     //TODO: Store this information in res xml files
     //First we declare icons and titles for navigation
