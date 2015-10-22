@@ -3,6 +3,7 @@ package com.example.ufl.srproject;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,12 +24,14 @@ import com.facebook.login.widget.LoginButton;
 
 public class LoginActivity extends ActionBarActivity {
     CallbackManager cb;
-    SharedPreferences pref=this.getSharedPreferences("com.example.ufl.srproject", Context.MODE_PRIVATE);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login);
+        Resources res=getResources();
+        String prefString=res.getString(R.string.prefsFile);
+        SharedPreferences pref=this.getSharedPreferences(prefString, Context.MODE_PRIVATE);
         cb=CallbackManager.Factory.create();
         LoginButton fbLog = (LoginButton) findViewById(R.id.fb_login);
 
@@ -46,7 +49,7 @@ public class LoginActivity extends ActionBarActivity {
             public void onSuccess(LoginResult loginResult) {
                 Toast.makeText(getApplicationContext(),"Successful Login", Toast.LENGTH_LONG).show();
                 EditText user = (EditText)findViewById(R.id.userField);
-                pref.edit().putString("authToken",loginResult.getAccessToken().getToken());
+                //pref.edit().putString("authToken",loginResult.getAccessToken().getToken());
                 user.setText(loginResult.getAccessToken().getUserId());
             }
 

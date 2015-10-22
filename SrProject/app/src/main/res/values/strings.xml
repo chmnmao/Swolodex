@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">Swolodex</string>
     <string name="facebook_app_id">786229001504806</string>
+    <string name="prefsFile">SharedPreferences</string>
     <string name="body_area">Body Area</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="action_custom">Custom Options</string>
     <string name="openDrawer">openDrawer</string>
