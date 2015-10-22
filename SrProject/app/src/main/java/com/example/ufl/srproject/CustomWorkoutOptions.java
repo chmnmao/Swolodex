@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -18,7 +17,7 @@ import android.widget.Toast;
 
 import java.util.Random;
 
-public class CustomWorkoutOptions extends ActionBarActivity {
+public class CustomWorkoutOptions extends BaseActivity {
 
     String[] exercisePicks;
     String[] sets;
@@ -29,7 +28,7 @@ public class CustomWorkoutOptions extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.custom_workout_options_menu);
+        setContentView(R.layout.activity_custom_workout_options);
     }
 
     public void randWorkout (View v) {

@@ -26,12 +26,13 @@ public class LoginActivity extends ActionBarActivity {
     CallbackManager cb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //TODO: There's a bug that occurs on facebook login, find a way to resolve it
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login);
         Resources res=getResources();
         String prefString=res.getString(R.string.prefsFile);
-        SharedPreferences pref=this.getSharedPreferences(prefString, Context.MODE_PRIVATE);
+        final SharedPreferences pref=this.getSharedPreferences(prefString, Context.MODE_PRIVATE);
         cb=CallbackManager.Factory.create();
         LoginButton fbLog = (LoginButton) findViewById(R.id.fb_login);
 
@@ -49,7 +50,7 @@ public class LoginActivity extends ActionBarActivity {
             public void onSuccess(LoginResult loginResult) {
                 Toast.makeText(getApplicationContext(),"Successful Login", Toast.LENGTH_LONG).show();
                 EditText user = (EditText)findViewById(R.id.userField);
-                //pref.edit().putString("authToken",loginResult.getAccessToken().getToken());
+                pref.edit().putString("authToken",loginResult.getAccessToken().getToken());
                 user.setText(loginResult.getAccessToken().getUserId());
             }
 
