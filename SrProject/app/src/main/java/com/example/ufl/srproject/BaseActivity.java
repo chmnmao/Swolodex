@@ -56,10 +56,10 @@ public class BaseActivity extends ActionBarActivity {
         getLayoutInflater().inflate(layoutResID,activityContainer,true);
         super.setContentView(fullView);
 
-        //region INITIALIZE TOOLBAR AND MENU NAVIGATION
+    //region INITIALIZE TOOLBAR AND MENU NAVIGATION
         /* Assinging the toolbar object ot the view
-    and setting the the Action bar to our toolbar
-     */
+        and setting the the Action bar to our toolbar
+        */
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
@@ -127,13 +127,13 @@ public class BaseActivity extends ActionBarActivity {
         // Drawer Toggle Object Made
         Drawer.setDrawerListener(mDrawerToggle); // Drawer Listener set to the Drawer toggle
         mDrawerToggle.syncState();               // Finally we set the drawer toggle sync State
-//endregion
+    //endregion
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_base, menu);
         return true;
     }
 }
