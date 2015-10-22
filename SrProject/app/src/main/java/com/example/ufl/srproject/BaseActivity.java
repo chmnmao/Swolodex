@@ -86,10 +86,15 @@ public class BaseActivity extends ActionBarActivity {
                 if(child!=null&&gd.onTouchEvent(motionEvent)){
                     Drawer.closeDrawers();
                     //Do something here depending on item
-                    if(recyclerView.getChildPosition(child)==6){
-                        //We have clicked on the customize workout
-                        Intent toCustom = new Intent(getApplicationContext(),RandCustomWorkout.class);
-                        startActivity(toCustom);
+                    switch(recyclerView.getChildPosition(child)){
+                        case 1://Clicked to go to home menu
+                            Intent toHome = new Intent(getApplicationContext(),MainActivity.class);
+                            startActivity(toHome);
+                            break;
+                        case 6://We have clicked on the customize workout
+                            Intent toCustom = new Intent(getApplicationContext(),RandCustomWorkout.class);
+                            startActivity(toCustom);
+                            break;
                     }
                     return true;
                 }

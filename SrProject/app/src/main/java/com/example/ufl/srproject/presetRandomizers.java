@@ -22,29 +22,7 @@ import java.util.List;
 import java.util.Random;
 
 //TODO: Add a class as a backend data handler
-public class presetRandomizers extends ActionBarActivity {
-    //region VARIABLE DECLARATION
-    //TODO: Store this information in res xml files
-    //First we declare icons and titles for navigation
-    //Store them in the array below
-    String TITLES[] = {"Home","Events","Mail","Shop","Travel","Customize"};
-    int ICONS[] = {R.drawable.ic_home,R.drawable.ic_events,R.drawable.ic_mail,R.drawable.ic_shop,R.drawable.ic_travel,R.drawable.ic_cust_weight};
-
-    //Add string resources for profile data that we also store in the header
-    //And we also create a int resource for profile picture
-    String NAME = "Test Tester";
-    String EMAIL = "test@test.com";
-    int PROFILE = R.drawable.gator;
-
-    private Toolbar toolbar;                              // Declaring the Toolbar Object
-
-    RecyclerView mRecyclerView;                           // Declaring RecyclerView
-    RecyclerView.Adapter mAdapter;                        // Declaring Adapter For Recycler View
-    RecyclerView.LayoutManager mLayoutManager;            // Declaring Layout Manager as a linear layout manager
-    DrawerLayout Drawer;                                  // Declaring DrawerLayout
-
-    ActionBarDrawerToggle mDrawerToggle;                  // Declaring Action Bar Drawer Toggle
-//endregion
+public class presetRandomizers extends BaseActivity {
 
     List<String> exercisePicks;
     String[] sets;
@@ -61,47 +39,6 @@ public class presetRandomizers extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rand_workout_menu);
         Resources res = getResources();
-//region INITIALIZE TOOLBAR AND MENU NAVIGATION
-        /* Assinging the toolbar object ot the view
-        and setting the the Action bar to our toolbar
-     */
-        toolbar = (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(toolbar);
-
-        mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView); // Assigning the RecyclerView Object to the xml View
-
-        mRecyclerView.setHasFixedSize(true);                            // Letting the system know that the list objects are of fixed size
-
-        mAdapter = new MyAdapter(TITLES,ICONS,NAME,EMAIL,PROFILE);       // Creating the Adapter of MyAdapter class(which we are going to see in a bit)
-        // And passing the titles,icons,header view name, header view email,
-        // and header view profile picture
-
-        mRecyclerView.setAdapter(mAdapter);                              // Setting the adapter to RecyclerView
-
-        mLayoutManager = new LinearLayoutManager(this);                 // Creating a layout Manager
-
-        mRecyclerView.setLayoutManager(mLayoutManager);                 // Setting the layout Manager
-
-
-        Drawer = (DrawerLayout) findViewById(R.id.exerciseDisplay);        // Drawer object Assigned to the view
-        mDrawerToggle = new ActionBarDrawerToggle(this,Drawer,toolbar,R.string.openDrawer,R.string.closeDrawer) {
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-                // code here will execute once the drawer is opened( As I dont want anything happened whe drawer is
-                // open I am not going to put anything here)
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-                // Code here will execute once drawer is closed
-            }
-        };
-        // Drawer Toggle Object Made
-        Drawer.setDrawerListener(mDrawerToggle); // Drawer Listener set to the Drawer toggle
-        mDrawerToggle.syncState();               // Finally we set the drawer toggle sync State
-//endregion
         randomizeWorkout(res, body_area);
 
         // initialize the save button and its listener

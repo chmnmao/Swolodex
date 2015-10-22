@@ -27,8 +27,6 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Resources res = getResources();
-//TODO:Create method to call and initialize toolbar instead of doing it every single time
-
 
 //region PAGE CONTENT
         /*The main page content is dedicated to randomizing
@@ -38,8 +36,7 @@ public class MainActivity extends BaseActivity {
         ListView container = (ListView)findViewById(R.id.container);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.item_list_view_swolodex_1,
                 res.getStringArray(R.array.BODY_AREAS));
-        //TODO:
-        //Eventually set alternate colors or some sort of styling for adapters
+        //TODO: Eventually set alternate colors or some sort of styling for adapters
         //Also eventually we should use our own list item layout
         container.setAdapter(adapter);
         container.setOnItemClickListener(new AdapterView.OnItemClickListener() {
