@@ -4,18 +4,23 @@ package com.example.ufl.srproject;
  * Created by danie_000 on 10/6/2015.
  */
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -71,6 +76,14 @@ public class RandCustomWorkout extends BaseActivity {
                 placeIntoListView();
 
                 return false;
+            }
+        });
+
+        expListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> arg0, View arg1, final int pos, long id) {
+                groupAdd(pos);
+                return true;
             }
         });
 
@@ -314,32 +327,67 @@ public class RandCustomWorkout extends BaseActivity {
         displayExercises.setAdapter(arrayAddNewExercise);
     }
 
-    public void saveWorkout(String[] saveWorkout) {
-        String List = "";
+    public void saveWorkout(final String[] saveWorkout) {
 
-        for(int i = 0; i < saveWorkout.length; i++)
-        {
-            List += saveWorkout[i];
-            List += ";";
-        }
+        // need to use original context
+        final Context temp = this;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor prefsEditor = prefs.edit();
-        prefsEditor.putString("YOURKEY", List);
-        prefsEditor.commit();
+        // Pop up dialog
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Save workout as:");
+
+        // Set an EditText view to get user input
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+
+        // Set view to the pop up
+        alert.setView(input);
+
+        // When user hits "Save"...
+        alert.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                String List = "";
+
+                for (int i = 0; i < saveWorkout.length; i++) {
+                    List += saveWorkout[i];
+                    List += ";";
+                }
+
+                // Save the workout under a name (AKA key)
+                // Add the header USER so that we can see which sharedpref keys are user generated
+                String userKey = "USER" + input.getText().toString();
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(temp);
+                SharedPreferences.Editor prefsEditor = prefs.edit();
+                prefsEditor.putString(userKey, List);
+                prefsEditor.commit();
+
+                Toast.makeText(temp, "Saved workout '" + input.getText().toString() + "'", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // Canceled.
+                Toast.makeText(temp, "Canceled Save", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        AlertDialog dialog = alert.create();
+        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        dialog.show();
     }
 
-    public void groupAdd(View v) {
-        Toast.makeText(this,"Added: " + listDataHeader.get((int)v.getTag()) + "  At index: " + v.getTag() + "  Of Length : " + listDataChild.get(listDataHeader.get((int)v.getTag())).size(), Toast.LENGTH_SHORT).show();
+    public void groupAdd(int pos) {
+        Toast.makeText(this,"Added: " + listDataHeader.get(pos) + "  At index: " + pos + "  Of Length : " + listDataChild.get(listDataHeader.get(pos)).size(), Toast.LENGTH_SHORT).show();
 
         // Add all children of a group to the exercisePicks array
-        for(int i = 0; i < listDataChild.get(listDataHeader.get((int)v.getTag())).size(); i++) {
-            exercisePicks.add(listDataChild.get(listDataHeader.get((int)v.getTag())).get(i));
+        for(int i = 0; i < listDataChild.get(listDataHeader.get(pos)).size(); i++) {
+            exercisePicks.add(listDataChild.get(listDataHeader.get(pos)).get(i));
         }
 
         // Display the group we added
-        exerciseDisplay.add(listDataHeader.get((int)v.getTag()));
-        arrayAddNewExercise = new ArrayAdapter<String>(this, R.layout.simple_list_item_custom, exerciseDisplay);
+        exerciseDisplay.add(listDataHeader.get(pos));
+        arrayAddNewExercise = new ArrayAdapter<String>(this, R.layout.item_list_view_swolodex_2, exerciseDisplay);
         ListView displayExercises = (ListView)findViewById(R.id.selectionList);
         displayExercises.setAdapter(arrayAddNewExercise);
     }

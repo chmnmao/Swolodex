@@ -81,14 +81,20 @@ public class ListSavedWorkouts extends BaseActivity {
                 // When user hits "Yes"...
                 alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
+                        // removes the selected workout from sharedprefs
+                        SharedPreferences.Editor prefsEditor = prefs.edit();
+                        prefsEditor.remove(workoutRetrieveList.get(pos));
+                        prefsEditor.apply();
+
                         // removes the selected workout from view
                         savedWorkouts.remove(workoutDisplayList.get(pos));
                         displayExercises.setAdapter(savedWorkouts);
 
-                        // removes the selected workout from sharedprefs
-                        SharedPreferences.Editor prefsEditor = prefs.edit();
-                        prefsEditor.remove(workoutRetrieveList.get(pos));
-                        prefsEditor.commit();
+                        // remove from/update the retrieve list
+                        workoutRetrieveList.remove(pos);
+
+                        // Gets all the keys and determines which ones are saved workouts from the user
+                        Map<String, ?> allEntries = prefs.getAll();
 
                         Toast.makeText(temp, "Workout removed", Toast.LENGTH_SHORT).show();
                     }

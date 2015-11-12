@@ -131,7 +131,7 @@ public class presetRandomizers extends BaseActivity {
                         setContentView(R.layout.rand_workout_menu);
 
                         // Assemble the workout array
-                        workout[pos] = exercisePicks.get(pos) + "\n" + "\t\t\tSets:\t" + sets + "\n" + "\t\t\tRepetitions:\t" + repetitions;
+                        workout[pos] = exercisePicks.get(pos) + "\n" + "\t\t\tSets:\t" + sets + "\n" + "\t\t\tRepetitions:\t" + repetitions + "\n";
 
                         // Print the sucker to screen
                         arrayAddNewExercise = new ArrayAdapter<String>(temp, R.layout.item_list_view_swolodex_2, workout);
@@ -223,7 +223,7 @@ public class presetRandomizers extends BaseActivity {
         workout = new String[exercisePicks.size()];
         for(int i = 0; i < workout.length; i++)
         {
-            workout[i] = exercisePicks.get(i) + "\n" + "\t\t\tSets:\t" + sets[i] + "\n" + "\t\t\tRepetitions:\t" + repetitions[i];
+            workout[i] = exercisePicks.get(i) + "\n" + "\t\t\tSets:\t" + sets[i] + "\n" + "\t\t\tRepetitions:\t" + repetitions[i] + "\n";
         }
 
         // Print the sucker to screen

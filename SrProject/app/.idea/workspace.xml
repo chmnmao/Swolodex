@@ -39,20 +39,26 @@
       <file leaf-file-name="presetRandomizers.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/presetRandomizers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.8330435">
-              <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.44347826">
+              <caret line="133" column="142" selection-start-line="133" selection-start-column="142" selection-end-line="133" selection-end-column="142" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ListSavedWorkouts.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/ListSavedWorkouts.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="92" column="38" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
               <folding>
-                <element signature="e#1581#1713#0" expanded="true" />
-                <element signature="e#1712#1713#0" expanded="true" />
-                <element signature="e#1849#7397#0" expanded="true" />
-                <element signature="e#2284#6930#0" expanded="true" />
-                <element signature="e#3934#3942#0" expanded="true" />
-                <element signature="e#6929#6930#0" expanded="true" />
-                <element signature="e#7396#7397#0" expanded="true" />
-                <element signature="e#12308#13244#0" expanded="true" />
-                <element signature="e#13243#13244#0" expanded="true" />
-                <element signature="e#13290#13539#0" expanded="true" />
-                <element signature="e#13538#13539#0" expanded="true" />
+                <element signature="e#1993#2001#0" expanded="true" />
+                <element signature="e#2913#4988#0" expanded="true" />
+                <element signature="e#3360#4389#0" expanded="true" />
+                <element signature="e#4388#4389#0" expanded="true" />
+                <element signature="e#4439#4734#0" expanded="true" />
+                <element signature="e#4733#4734#0" expanded="true" />
+                <element signature="e#4987#4988#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1537,11 +1543,12 @@
         <option value="$PROJECT_DIR$/src/main/res/layout/saved_workout_menu.xml" />
         <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/additional_exercise_preset_options_menu.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/ListSavedWorkouts.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/CustomWorkoutOptions.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/additional_exercise_options_menu.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/RandCustomWorkout.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/AdditionalExerciseOptions.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/AdditionalExercisePresetOptions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/CustomWorkoutOptions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/ListSavedWorkouts.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/presetRandomizers.java" />
       </list>
     </option>
@@ -1578,7 +1585,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
@@ -1586,24 +1594,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1682,8 +1672,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1923,8 +1912,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1943,6 +1931,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1959,23 +1948,38 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="67" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/RandCustomWorkout.java</url>
+          <line>84</line>
+          <properties />
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="83" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
-        <watch expression="workout" />
+        <watch expression="workoutDisplayList" />
+        <watch expression="workoutRetrieveList" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/presetRandomizers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/ListSavedWorkouts.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#1993#2001#0" expanded="true" />
-            <element signature="e#2913#4694#0" expanded="true" />
-            <element signature="e#4693#4694#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2000,9 +2004,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="80" column="117" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="117" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2205,25 +2207,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/RandCustomWorkout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6417394">
-          <caret line="79" column="94" selection-start-line="79" selection-start-column="94" selection-end-line="79" selection-end-column="94" />
-          <folding>
-            <element signature="e#2767#3112#0" expanded="true" />
-            <element signature="e#3111#3112#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/CustomWorkoutOptions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.034782607">
-          <caret line="89" column="133" selection-start-line="89" selection-start-column="133" selection-end-line="89" selection-end-column="133" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/sdk2/sources/android-21/android/app/ActivityThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.80078125">
@@ -2234,71 +2217,80 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/AdditionalExerciseOptions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="146" column="74" selection-start-line="146" selection-start-column="74" selection-end-line="146" selection-end-column="74" />
+        <state vertical-scroll-proportion="5.765568">
+          <caret line="245" column="5" selection-start-line="245" selection-start-column="5" selection-end-line="245" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/ListSavedWorkouts.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.08869565">
-          <caret line="38" column="33" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="33" />
-          <folding>
-            <element signature="e#1993#2001#0" expanded="true" />
-            <element signature="e#2913#4694#0" expanded="true" />
-            <element signature="e#4693#4694#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/AdditionalExercisePresetOptions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.7843478">
-          <caret line="163" column="65" selection-start-line="71" selection-start-column="16" selection-end-line="163" selection-end-column="65" />
+        <state vertical-scroll-proportion="1.7435898">
+          <caret line="372" column="5" selection-start-line="372" selection-start-column="5" selection-end-line="372" selection-end-column="5" />
           <folding>
-            <element signature="e#3469#3477#0" expanded="true" />
-            <element signature="e#10285#10293#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3530#3538#0" expanded="true" />
+            <element signature="e#10346#10354#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/CustomWorkoutOptions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.3076923">
+          <caret line="272" column="5" selection-start-line="272" selection-start-column="5" selection-end-line="272" selection-end-column="5" />
+          <folding>
+            <element signature="e#3993#4125#0" expanded="true" />
+            <element signature="e#4124#4125#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/RandCustomWorkout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21565217">
+          <caret line="329" column="0" selection-start-line="329" selection-start-column="0" selection-end-line="329" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/sdk2/sources/android-21/android/os/Handler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/sdk2/sources/android-21/android/os/Looper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.33203125">
           <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/ListSavedWorkouts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="92" column="38" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
           <folding>
-            <element signature="e#5688#5689#0" expanded="true" />
-            <element signature="e#5729#5730#0" expanded="true" />
+            <element signature="e#1993#2001#0" expanded="true" />
+            <element signature="e#2913#4988#0" expanded="true" />
+            <element signature="e#3360#4389#0" expanded="true" />
+            <element signature="e#4388#4389#0" expanded="true" />
+            <element signature="e#4439#4734#0" expanded="true" />
+            <element signature="e#4733#4734#0" expanded="true" />
+            <element signature="e#4987#4988#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/ufl/srproject/presetRandomizers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.8330435">
-          <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
-          <folding>
-            <element signature="e#1581#1713#0" expanded="true" />
-            <element signature="e#1712#1713#0" expanded="true" />
-            <element signature="e#1849#7397#0" expanded="true" />
-            <element signature="e#2284#6930#0" expanded="true" />
-            <element signature="e#3934#3942#0" expanded="true" />
-            <element signature="e#6929#6930#0" expanded="true" />
-            <element signature="e#7396#7397#0" expanded="true" />
-            <element signature="e#12308#13244#0" expanded="true" />
-            <element signature="e#13243#13244#0" expanded="true" />
-            <element signature="e#13290#13539#0" expanded="true" />
-            <element signature="e#13538#13539#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.44347826">
+          <caret line="133" column="142" selection-start-line="133" selection-start-column="142" selection-end-line="133" selection-end-column="142" />
+          <folding />
         </state>
       </provider>
     </entry>
