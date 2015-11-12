@@ -2,6 +2,7 @@ package com.example.ufl.srproject;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-public class AdditionalExercisePresetOptions extends ActionBarActivity {
+public class AdditionalExercisePresetOptions extends BaseActivity {
 
     String[] exercisePicks;
     String[] sets;
@@ -30,6 +31,18 @@ public class AdditionalExercisePresetOptions extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.additional_exercise_preset_options_menu);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putString("Custom", "");
+        prefsEditor.commit();
+
+        Intent intent = new Intent(this, RandCustomWorkout.class);
+        startActivity(intent);
     }
 
     public void randNumUpperBodyWorkout (View v) {
@@ -52,7 +65,7 @@ public class AdditionalExercisePresetOptions extends ActionBarActivity {
                 String List = prefs.getString("Custom", "");
                 // TODO Need to fix this, temporarily rigged to work with a saved list of 50 workouts
                 String[] savedExercises = new String[50];
-                if(!List.equals("")) {
+                if (!List.equals("")) {
                     savedExercises = List.split(";");
                 }
 
@@ -73,15 +86,19 @@ public class AdditionalExercisePresetOptions extends ActionBarActivity {
 
                 // Turn this 2D array into a 1D array, there were complications with a 2D array
                 java.util.List<String> exerciseList = new ArrayList<String>();
-                for (int i = 0; i < tempExerciseList.length; i++){
-                    for (int j = 0; j < tempExerciseList[i].length; j++){
+                for (int i = 0; i < tempExerciseList.length; i++) {
+                    for (int j = 0; j < tempExerciseList[i].length; j++) {
                         exerciseList.add(tempExerciseList[i][j]);
                     }
                 }
 
                 // Initialization of these arrays
                 int countTotalExercise = numberOfExercises;
-                exercisePicks = new String[countTotalExercise];
+                // Add saved exercises now so we won't reroll again them later
+                exercisePicks = new String[countTotalExercise + savedExercises.length];
+                for (int i = 0; i < savedExercises.length; i++) {
+                    exercisePicks[i] = savedExercises[i];
+                }
                 countTotalExercise--;
 
                 while (countTotalExercise >= 0) {
@@ -99,22 +116,12 @@ public class AdditionalExercisePresetOptions extends ActionBarActivity {
                         }
                     }
                     // If it passes the check, put it into the workout
-                    exercisePicks[countTotalExercise] = exerciseList.get(randExerciseSelect);
+                    exercisePicks[savedExercises.length + countTotalExercise] = exerciseList.get(randExerciseSelect);
 
                     countTotalExercise--;
                 }
 
-                // Concatenate the saved exercises with the newly generated ones
-                ArrayList<String>  finalExerciseList = new ArrayList<String>();
-                for (int i = 0; i < savedExercises.length; i++){
-                    finalExerciseList.add(savedExercises[i]);
-                }
-                for (int i = 0; i < exercisePicks.length; i++){
-                    finalExerciseList.add(exercisePicks[i]);
-                }
-
-                // Generate the sets and reps for the entire list
-                countTotalExercise = finalExerciseList.size();
+                countTotalExercise = exercisePicks.length;
                 // Initialization of these arrays
                 sets = new String[countTotalExercise];
                 repetitions = new String[countTotalExercise];
@@ -146,13 +153,13 @@ public class AdditionalExercisePresetOptions extends ActionBarActivity {
                 setContentView(R.layout.rand_workout_menu);
 
                 // Assemble the workout array
-                workout = new String[finalExerciseList.size()];
+                workout = new String[exercisePicks.length];
                 for (int i = 0; i < workout.length; i++) {
-                    workout[i] = finalExerciseList.get(i) + "\n" + "\t\t\tSets:\t" + sets[i] + "\n" + "\t\t\tRepetitions:\t" + repetitions[i] + "\n";
+                    workout[i] = exercisePicks[i] + "\n" + "\t\t\tSets:\t" + sets[i] + "\n" + "\t\t\tRepetitions:\t" + repetitions[i] + "\n";
                 }
 
                 // Print the sucker to screen
-                arrayAddNewExercise = new ArrayAdapter<String>(AdditionalExercisePresetOptions.this, R.layout.simple_list_item_custom, workout);
+                arrayAddNewExercise = new ArrayAdapter<String>(AdditionalExercisePresetOptions.this, R.layout.item_list_view_swolodex_2, workout);
                 ListView displayExercises = (ListView) findViewById(R.id.exerciseList);
                 displayExercises.setAdapter(arrayAddNewExercise);
 
@@ -223,7 +230,11 @@ public class AdditionalExercisePresetOptions extends ActionBarActivity {
 
                 // Initialization of these arrays
                 int countTotalExercise = numberOfExercises;
-                exercisePicks = new String[countTotalExercise];
+                // Add saved exercises now so we won't reroll again them later
+                exercisePicks = new String[countTotalExercise + savedExercises.length];
+                for (int i = 0; i < savedExercises.length; i++) {
+                    exercisePicks[i] = savedExercises[i];
+                }
                 countTotalExercise--;
 
                 while (countTotalExercise >= 0) {
@@ -241,22 +252,12 @@ public class AdditionalExercisePresetOptions extends ActionBarActivity {
                         }
                     }
                     // If it passes the check, put it into the workout
-                    exercisePicks[countTotalExercise] = exerciseList.get(randExerciseSelect);
+                    exercisePicks[savedExercises.length + countTotalExercise] = exerciseList.get(randExerciseSelect);
 
                     countTotalExercise--;
                 }
 
-                // Concatenate the saved exercises with the newly generated ones
-                ArrayList<String>  finalExerciseList = new ArrayList<String>();
-                for (int i = 0; i < savedExercises.length; i++){
-                    finalExerciseList.add(savedExercises[i]);
-                }
-                for (int i = 0; i < exercisePicks.length; i++){
-                    finalExerciseList.add(exercisePicks[i]);
-                }
-
-                // Generate the sets and reps for the entire list
-                countTotalExercise = finalExerciseList.size();
+                countTotalExercise = exercisePicks.length;
                 // Initialization of these arrays
                 sets = new String[countTotalExercise];
                 repetitions = new String[countTotalExercise];
@@ -288,13 +289,13 @@ public class AdditionalExercisePresetOptions extends ActionBarActivity {
                 setContentView(R.layout.rand_workout_menu);
 
                 // Assemble the workout array
-                workout = new String[finalExerciseList.size()];
+                workout = new String[exercisePicks.length];
                 for (int i = 0; i < workout.length; i++) {
-                    workout[i] = finalExerciseList.get(i) + "\n" + "\t\t\tSets:\t" + sets[i] + "\n" + "\t\t\tRepetitions:\t" + repetitions[i] + "\n";
+                    workout[i] = exercisePicks[i] + "\n" + "\t\t\tSets:\t" + sets[i] + "\n" + "\t\t\tRepetitions:\t" + repetitions[i] + "\n";
                 }
 
                 // Print the sucker to screen
-                arrayAddNewExercise = new ArrayAdapter<String>(AdditionalExercisePresetOptions.this, R.layout.simple_list_item_custom, workout);
+                arrayAddNewExercise = new ArrayAdapter<String>(AdditionalExercisePresetOptions.this, R.layout.item_list_view_swolodex_2, workout);
                 ListView displayExercises = (ListView) findViewById(R.id.exerciseList);
                 displayExercises.setAdapter(arrayAddNewExercise);
 

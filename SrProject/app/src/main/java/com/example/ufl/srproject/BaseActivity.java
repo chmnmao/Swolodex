@@ -1,7 +1,6 @@
 package com.example.ufl.srproject;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -96,7 +95,7 @@ public class BaseActivity extends ActionBarActivity {
                             startActivity(toCustom);
                             break;
                         case 7://We have clicked on the saved workouts
-                            Intent toSaved = new Intent(getApplicationContext(),SavedWorkout.class);
+                            Intent toSaved = new Intent(getApplicationContext(),ListSavedWorkouts.class);
                             startActivity(toSaved);
                             break;
                     }

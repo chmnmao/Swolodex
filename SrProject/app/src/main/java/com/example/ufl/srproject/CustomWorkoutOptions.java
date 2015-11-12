@@ -1,6 +1,7 @@
 package com.example.ufl.srproject;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,6 +32,14 @@ public class CustomWorkoutOptions extends BaseActivity {
         setContentView(R.layout.activity_custom_workout_options);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putString("Custom", "");
+        prefsEditor.commit();
+    }
     public void randWorkout (View v) {
 
         Random r = new Random();
@@ -82,7 +91,7 @@ public class CustomWorkoutOptions extends BaseActivity {
         }
 
         // Print the sucker to screen
-        arrayAddNewExercise = new ArrayAdapter<String>(this, R.layout.simple_list_item_custom, workout);
+        arrayAddNewExercise = new ArrayAdapter<String>(this, R.layout.item_list_view_swolodex_2, workout);
         ListView displayExercises = (ListView)findViewById(R.id.exerciseList);
         displayExercises.setAdapter(arrayAddNewExercise);
 
@@ -93,10 +102,6 @@ public class CustomWorkoutOptions extends BaseActivity {
                 saveWorkout(workout);
             }
         });
-
-        SharedPreferences.Editor prefsEditor = prefs.edit();
-        prefsEditor.putString("Custom", "");
-        prefsEditor.commit();
     }
 
     public void additionalExercises(View v) {
@@ -187,7 +192,7 @@ public class CustomWorkoutOptions extends BaseActivity {
                     }
 
                     // Print the sucker to screen
-                    arrayAddNewExercise = new ArrayAdapter<String>(CustomWorkoutOptions.this, R.layout.simple_list_item_custom, workout);
+                    arrayAddNewExercise = new ArrayAdapter<String>(CustomWorkoutOptions.this, R.layout.item_list_view_swolodex_2, workout);
                     ListView displayExercises = (ListView) findViewById(R.id.exerciseList);
                     displayExercises.setAdapter(arrayAddNewExercise);
 

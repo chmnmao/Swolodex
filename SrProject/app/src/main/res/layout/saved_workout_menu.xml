@@ -13,6 +13,7 @@
         android:paddingLeft="1dp"
         android:textSize="60px"
         android:textColor="@color/UF_BLUE"
-        android:background="#d2d2d2" />
+        android:background="#d2d2d2"
+        android:longClickable="true" />
 
 </LinearLayout>
