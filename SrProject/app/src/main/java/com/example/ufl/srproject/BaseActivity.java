@@ -36,9 +36,9 @@ public class BaseActivity extends ActionBarActivity {
     CallbackManager callbackManager;
     //First we declare icons and titles for navigation
     //Store them in the array below
-    String TITLES[] = {"Home","Events","Mail","Shop","Travel","Customize"};
+    String TITLES[] = {"Home","Events","Mail","Shop","Travel","Customize","Saved Workouts"};
     //TODO: Uniform icon styles
-    int ICONS[] = {R.drawable.ic_home,R.drawable.ic_events,R.drawable.ic_mail,R.drawable.ic_shop,R.drawable.ic_travel,R.drawable.ic_cust_weight};
+    int ICONS[] = {R.drawable.ic_home,R.drawable.ic_events,R.drawable.ic_mail,R.drawable.ic_shop,R.drawable.ic_travel,R.drawable.ic_cust_weight,R.drawable.ic_save};
 
     //Add string resources for profile data that we also store in the header
     //And we also create a int resource for profile picture
@@ -127,6 +127,10 @@ public class BaseActivity extends ActionBarActivity {
                         case 6://We have clicked on the customize workout
                             Intent toCustom = new Intent(getApplicationContext(),RandCustomWorkout.class);
                             startActivity(toCustom);
+                            break;
+                        case 7://We have clicked on the customize workout
+                            Intent toSaved = new Intent(getApplicationContext(),ListSavedWorkouts.class);
+                            startActivity(toSaved);
                             break;
                     }
                     return true;
