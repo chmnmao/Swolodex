@@ -1,6 +1,7 @@
 package com.example.ufl.srproject;
 
 import android.content.Intent;
+import android.content.pm.PackageInstaller;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -14,6 +15,16 @@ import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.ProfilePictureView;
 
 /**
  * Created by Kevin on 10/21/2015.
@@ -21,6 +32,8 @@ import android.widget.FrameLayout;
 public class BaseActivity extends ActionBarActivity {
     //region VARIABLE DECLARATION
     //TODO: Store this information in res xml files
+    //Declare callback manager
+    CallbackManager callbackManager;
     //First we declare icons and titles for navigation
     //Store them in the array below
     String TITLES[] = {"Home","Events","Mail","Shop","Travel","Customize"};
@@ -43,23 +56,43 @@ public class BaseActivity extends ActionBarActivity {
     ActionBarDrawerToggle mDrawerToggle;                  // Declaring Action Bar Drawer Toggle
     //endregion
 
+    //region Do facebook login stuff here
+    //Variable declaration
+    String get_id, get_name, get_gender, get_email, get_birthday, get_locale, get_location;
+
+
+    //endregion
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager=CallbackManager.Factory.create();
+
     }
 
     @Override
     public void setContentView(int layoutResID){
         DrawerLayout fullView=(DrawerLayout) getLayoutInflater().
-                inflate(R.layout.activity_base,null);
+                inflate(R.layout.activity_base,new LinearLayout(this.getApplicationContext()),false);
         FrameLayout activityContainer=(FrameLayout) fullView.findViewById(R.id.activity_content);
         getLayoutInflater().inflate(layoutResID,activityContainer,true);
         super.setContentView(fullView);
 
     //region INITIALIZE TOOLBAR AND MENU NAVIGATION
-        /* Assinging the toolbar object ot the view
+        /* Assigning the toolbar object ot the view
         and setting the the Action bar to our toolbar
         */
+        //region INITIALIZE FACEBOOK PROFILE INFORMATION
+        ProfilePictureView myProfilePic;
+        myProfilePic=(ProfilePictureView)findViewById(R.id.profilePicture);
+        String userID;
+        Profile profile=Profile.getCurrentProfile();
+        if(profile!=null){
+            //Set profile data
+            //Currently we set name and email here and do profile picture in MyAdapter class
+            NAME=profile.getName();
+        }
+        //endregion
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
