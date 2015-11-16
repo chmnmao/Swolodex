@@ -1,6 +1,7 @@
 package com.example.ufl.srproject;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,6 +32,14 @@ public class CustomWorkoutOptions extends BaseActivity {
         setContentView(R.layout.activity_custom_workout_options);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putString("Custom", "");
+        prefsEditor.commit();
+    }
     public void randWorkout (View v) {
 
         Random r = new Random();
@@ -82,7 +91,7 @@ public class CustomWorkoutOptions extends BaseActivity {
         }
 
         // Print the sucker to screen
-        arrayAddNewExercise = new ArrayAdapter<String>(this, R.layout.simple_list_item_custom, workout);
+        arrayAddNewExercise = new ArrayAdapter<String>(this, R.layout.item_list_view_swolodex_2, workout);
         ListView displayExercises = (ListView)findViewById(R.id.exerciseList);
         displayExercises.setAdapter(arrayAddNewExercise);
 
@@ -93,10 +102,6 @@ public class CustomWorkoutOptions extends BaseActivity {
                 saveWorkout(workout);
             }
         });
-
-        SharedPreferences.Editor prefsEditor = prefs.edit();
-        prefsEditor.putString("Custom", "");
-        prefsEditor.commit();
     }
 
     public void additionalExercises(View v) {
@@ -187,7 +192,7 @@ public class CustomWorkoutOptions extends BaseActivity {
                     }
 
                     // Print the sucker to screen
-                    arrayAddNewExercise = new ArrayAdapter<String>(CustomWorkoutOptions.this, R.layout.simple_list_item_custom, workout);
+                    arrayAddNewExercise = new ArrayAdapter<String>(CustomWorkoutOptions.this, R.layout.item_list_view_swolodex_2, workout);
                     ListView displayExercises = (ListView) findViewById(R.id.exerciseList);
                     displayExercises.setAdapter(arrayAddNewExercise);
 
@@ -217,18 +222,53 @@ public class CustomWorkoutOptions extends BaseActivity {
         dialog.show();
     }
 
-    public void saveWorkout(String[] saveWorkout) {
-        String List = "";
+    public void saveWorkout(final String[] saveWorkout) {
 
-        for(int i = 0; i < saveWorkout.length; i++)
-        {
-            List += saveWorkout[i];
-            List += ";";
-        }
+        // need to use original context
+        final Context temp = this;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor prefsEditor = prefs.edit();
-        prefsEditor.putString("YOURKEY", List);
-        prefsEditor.commit();
+        // Pop up dialog
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Save workout as:");
+
+        // Set an EditText view to get user input
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+
+        // Set view to the pop up
+        alert.setView(input);
+
+        // When user hits "Save"...
+        alert.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                String List = "";
+
+                for (int i = 0; i < saveWorkout.length; i++) {
+                    List += saveWorkout[i];
+                    List += ";";
+                }
+
+                // Save the workout under a name (AKA key)
+                // Add the header USER so that we can see which sharedpref keys are user generated
+                String userKey = "USER" + input.getText().toString();
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(temp);
+                SharedPreferences.Editor prefsEditor = prefs.edit();
+                prefsEditor.putString(userKey, List);
+                prefsEditor.commit();
+
+                Toast.makeText(temp, "Saved workout '" + input.getText().toString() + "'", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // Canceled.
+                Toast.makeText(temp, "Canceled Save", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        AlertDialog dialog = alert.create();
+        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        dialog.show();
     }
 }

@@ -45,8 +45,20 @@
             android:name=".RandCustomWorkout"
             android:label="@string/title_activity_customize" />
         <activity
+            android:name=".AdditionalExerciseOptions"
+            android:label="@string/title_activity_customize" />
+        <activity
+            android:name=".AdditionalExercisePresetOptions"
+            android:label="@string/title_activity_customize" />
+        <activity
             android:name=".CustomWorkoutOptions"
             android:label="@string/title_activity_customize" />
+        <activity
+            android:name=".ListSavedWorkouts"
+            android:label="@string/title_activity_saved" />
+        <activity
+            android:name=".SavedWorkout"
+            android:label="@string/title_activity_saved" />
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
