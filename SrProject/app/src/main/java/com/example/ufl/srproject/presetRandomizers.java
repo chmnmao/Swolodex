@@ -54,10 +54,9 @@ public class presetRandomizers extends BaseActivity {
         });
 
         ListView displayExercises = (ListView)findViewById(R.id.exerciseList);
-
-        displayExercises.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        displayExercises.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> arg0, View arg1, final int pos, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, final int pos, long id) {
                 // Pop up dialog
                 AlertDialog.Builder alert = new AlertDialog.Builder(temp);
                 alert.setTitle("What would like like to do?");
@@ -148,8 +147,8 @@ public class presetRandomizers extends BaseActivity {
                 AlertDialog dialog = alert.create();
                 dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
                 dialog.show();
-                return true;
             }
+
         });
     }
 

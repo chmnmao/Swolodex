@@ -146,5 +146,4 @@ public class ListSavedWorkouts extends BaseActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-//endregion
 }
