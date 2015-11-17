@@ -1,22 +1,20 @@
 package com.example.ufl.srproject;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.text.InputType;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,7 +29,6 @@ public class presetRandomizers extends BaseActivity {
     String[] repetitions;
     String[] workout;
     ArrayAdapter<String> arrayAddNewExercise;
-    final Context temp = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +49,7 @@ public class presetRandomizers extends BaseActivity {
                 saveWorkout(workout);
             }
         });
+<<<<<<< HEAD
 
         ListView displayExercises = (ListView)findViewById(R.id.exerciseList);
         displayExercises.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -150,6 +148,8 @@ public class presetRandomizers extends BaseActivity {
             }
 
         });
+=======
+>>>>>>> 5c4a97258f8f2df1cd303b7071388294d3979629
     }
 
     //Refactor: Begin consolidating into one single function
@@ -222,7 +222,7 @@ public class presetRandomizers extends BaseActivity {
         workout = new String[exercisePicks.size()];
         for(int i = 0; i < workout.length; i++)
         {
-            workout[i] = exercisePicks.get(i) + "\n" + "\t\t\tSets:\t" + sets[i] + "\n" + "\t\t\tRepetitions:\t" + repetitions[i] + "\n";
+            workout[i] = exercisePicks.get(i) + "\n" + "\t\t\tSets:\t" + sets[i] + "\n" + "\t\t\tRepetitions:\t" + repetitions[i];
         }
 
         // Print the sucker to screen
@@ -231,57 +231,18 @@ public class presetRandomizers extends BaseActivity {
         displayExercises.setAdapter(arrayAddNewExercise);
     }
 
-    public void saveWorkout(final String[] saveWorkout) {
+    public void saveWorkout(String[] saveWorkout) {
+        String List = "";
 
-        // need to use original context
-        final Context temp = this;
+        for(int i = 0; i < saveWorkout.length; i++)
+        {
+            List += saveWorkout[i];
+            List += ";";
+        }
 
-        // Pop up dialog
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle("Save workout as:");
-
-        // Set an EditText view to get user input
-        final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
-
-        // Set view to the pop up
-        alert.setView(input);
-
-        // When user hits "Save"...
-        alert.setPositiveButton("Save", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                String List = "";
-
-                for (int i = 0; i < saveWorkout.length; i++) {
-                    List += saveWorkout[i];
-                    List += ";";
-                }
-
-                // Save the workout under a name (AKA key)
-                // Add the header USER so that we can see which sharedpref keys are user generated
-                String userKey = "USER" + input.getText().toString();
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(temp);
-                SharedPreferences.Editor prefsEditor = prefs.edit();
-                prefsEditor.putString(userKey, List);
-                prefsEditor.commit();
-
-                Toast.makeText(temp, "Saved workout '" + input.getText().toString() + "'", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                // Canceled.
-                Toast.makeText(temp, "Canceled Save", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        AlertDialog dialog = alert.create();
-        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-        dialog.show();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putString("YOURKEY", List);
+        prefsEditor.commit();
     }
 }
-
-
-
-

@@ -17,10 +17,18 @@
 
         <Button
             android:id="@+id/randWorkout"
+            android:layout_width="80px"
+            android:layout_margin="10dp"
+            android:layout_height="56dp"
+            android:background="#ffdce34f"
+            android:onClick="randWorkout" />
+
+        <Button
+            android:id="@+id/randWorkout"
             android:layout_width="fill_parent"
             android:layout_height="56dp"
             android:layout_marginLeft="-10dp"
-            android:textColor="@color/UF_BLUE"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:text="Randomized Workout"
             android:gravity="center"
@@ -39,11 +47,19 @@
         android:gravity="center_vertical">
 
         <Button
+            android:id="@+id/randWorkoutCustomize"
+            android:layout_width="80px"
+            android:layout_margin="10dp"
+            android:layout_height="56dp"
+            android:background="#ffdce34f"
+            android:onClick="additionalExercises" />
+
+        <Button
             android:id="@+id/randWorkoutCustomize2"
             android:layout_width="fill_parent"
             android:layout_height="56dp"
             android:layout_marginLeft="-10dp"
-            android:textColor="@color/UF_BLUE"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:text="Randomize with additional exercises"
             android:gravity="center"
@@ -64,11 +80,19 @@
             android:weightSum="1">
 
             <Button
+                android:id="@+id/randWorkoutCustomize"
+                android:layout_width="80px"
+                android:layout_margin="10dp"
+                android:layout_height="56dp"
+                android:background="#ffdce34f"
+                android:onClick="randNumWorkout" />
+
+            <Button
                 android:id="@+id/randWorkoutCustomize2"
                 android:layout_width="fill_parent"
                 android:layout_height="56dp"
                 android:layout_marginLeft="-10dp"
-                android:textColor="@color/UF_BLUE"
+                android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:text="Randomize how many exercises?"
                 android:gravity="center"

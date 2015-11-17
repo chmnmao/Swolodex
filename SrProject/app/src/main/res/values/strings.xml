@@ -6,21 +6,18 @@
     <string name="body_area">Body Area</string>
     <string name="action_settings">Settings</string>
     <string name="action_custom">Custom Options</string>
-    <string name="action_saved">Saved Workouts</string>
     <string name="openDrawer">openDrawer</string>
     <string name="closeDrawer">closeDrawer</string>
     <string name="title_activity_body_area_workout">body_area_workout</string>
-    <string name="presetRandomizer">Target Randomizer</string>
+    <string name="presetRandomizer">Preset(?) Randomizer</string>
     <string name="UPPER_BODY">UPPER BODY</string>
     <string name="LOWER_BODY">LOWER BODY</string>
     <string name="CALISTHENICS">CALISTHENICS</string>
     <string name="OTHER">OTHER</string>
     <string name="ARMS">ARMS</string>
     <string name="title_activity_register">RegisterActivity</string>
-    <string name="action_remove">Remove</string>
     <string name="title_activity_login">Sign In</string>
-    <string name="title_activity_customize">Customized Generation</string>
-    <string name="title_activity_saved">Saved Workouts</string>
+    <string name="title_activity_customize">Customize</string>
     <string name="title_activity_test">testActivity</string>
     <string name="title_activity_tester">tester</string>
 </resources>
